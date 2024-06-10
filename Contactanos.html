@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="login" content="registro de usuarios">
-    <title>Document</title>
-    <link rel="stylesheet" href="estilos.css" type="text/css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poetsen+One& display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Website with a contact Form 01</title>
+    <link rel="stylesheet" href="estilos.css">
 </head>
 
+
 <body>
-<div class="container">
+    <div class="container">
         <div class="menu-container">
             <ul class="menuhorizontal">
                 <li><a href="QuienesSomos.html">Quienes somos</a></li>
@@ -22,104 +20,56 @@
                 <li><a href="index.html">Inicio</a></li>
             </ul>
         </div>
+    <div class="login-container">
+        <h1>Inscripción al Congreso de Tecnología</h1>
+        <form id="inscriptionForm" onsubmit="return validateForm()">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <div class="error" id="nombreError">
 
-        <div class="login-container">
-            <h1>Inscripción al Congreso de Tecnología</h1>
-            <form id="inscriptionForm" onsubmit="return validateForm()">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
-                <div class="error" id="nombreError"></div>
-    
-                <label for="apellido">Apellido:</label>
-                <input type="text" id="apellido" name="apellido" required>
-                <div class="error" id="apellidoError"></div>
-    
-                <label for="email">Correo Electrónico:</label>
-                <input type="email" id="email" name="email" required>
-                <div class="error" id="emailError"></div>
-    
-                <label for="celular">Número de Celular:</label>
-                <input type="tel" id="celular" name="celular" pattern="[0-9]{10}" required>
-                <div class="error" id="celularError"></div>
-    
-                <label for="comentario">Comentarios****:</label>
-                <input type="text" id="comentario" name="comentario" required>
-                <div class="error" id="comentarioError"></div>
-    
-                <label for="area">Área de Interés:</label>
-                <select id="area" name="area" required>
-                    <option value="">Seleccione un área</option>
-                    <option value="hardware">Hardware</option>
-                    <option value="software">Software</option>
-                    <option value="cursos">Cursos de Tecnología</option>
-                </select>
-    
-                <button type="submit">Enviar</button>
-            </form>
-        </div>
-<script>
-    function validateForm() {
-        var nombre = document.getElementById('nombre').value;
-        var apellido = document.getElementById('apellido').value;
-        var email = document.getElementById('email').value;
-        var celular = document.getElementById('celular').value;
-        var area = document.getElementById('area').value;
+            </div>
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" required>
+            <div class="error" id="apellidoError">
 
-        var nombreRegex = /^[a-zA-ZáéíóúÁÉÍÓÚ\s]+$/;
-        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            </div>
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" required>
+            <div class="error" id="emailError"></div>
+            <label for="celular">Número de Celular:</label>
+            <input type="tel" id="celular" name="celular" pattern="[0-9]{10}" required>
+            <div class="error" id="celularError">
 
-        var nombreValid = nombreRegex.test(nombre);
-        var apellidoValid = nombreRegex.test(apellido);
-        var emailValid = emailRegex.test(email);
-        var celularValid = !isNaN(celular) && celular.length === 10;
-        var areaValid = area !== '';
-        document.getElementById('nombre').innerText;
-        if (!nombreValid) {
-            document.getElementById('nombreError').innerText = 'Ingrese un nombre válido.';
-        } else {
-            document.getElementById('nombreError').innerText = '';
-        }
+            </div>
+            <label for="comentario">Comentarios:</label>
+            <input type="text" id="comentario" name="comentario" required>
+            <div class="error" id="comentarioError">
 
-        if (!apellidoValid) {
-            document.getElementById('apellidoError').innerText = 'Ingrese un apellido válido.';
-        } else {
-            document.getElementById('apellidoError').innerText = '';
-        }
-
-        if (!emailValid) {
-            document.getElementById('emailError').innerText = 'Ingrese un correo electrónico válido.';
-        } else {
-            document.getElementById('emailError').innerText = '';
-        }
-
-        if (!celularValid) {
-            document.getElementById('celularError').innerText = 'Ingrese un número de 10 dígitos).';
-        } else {
-            document.getElementById('celularError').innerText = '';
-        }
-
-        var cadena=document.getElementById('comentario').value;
-        //document.write('*'+cadena+'*');
-        let L=cadena.length;
-        //document.write('*'+L+'*');
-        if (L==0) {
-            document.getElementById('comentarioError').innerText = 'Comentario no puede quedar vacío';
-        } else {
-            document.getElementById('comentarioError').innerText = '';
-        }
-        return nombreValid && apellidoValid && emailValid && celularValid && areaValid;
-    }
-</script>
-
-
-
-
-    <div class="redes">
-        <h1>Búscanos en nuestras redes sociales</h1>
-        <a href="https://www.facebook.com/restauranteejecutivosabanero/?locale=es_LA"target="_blank"><img src="img/facebook.png"></a>
-        <a href="https://www.instagram.com/la.sabanera_sp/?__d=1%3Futm_source%3Dig_embed"target="_blank"><img src="img/instagram.png"></a>
+            </div>
+            
+            <button type="submit">Enviar</button>
+        </form>
     </div>
+    <div class="rating">
+        <input type="radio" name="rating" id="rating-5" value="5">
+        <label for="rating-5">☆</label>
+        <input type="radio" name="rating" id="rating-4" value="4">
+        <label for="rating-4">☆</label>
+        <input type="radio" name="rating" id="rating-3" value="3">
+        <label for="rating-3">☆</label>
+        <input type="radio" name="rating" id="rating-2" value="2">
+        <label for="rating-2">☆</label>
+        <input type="radio" name="rating" id="rating-1" value="1">
+        <label for="rating-1">☆</label>
+    </div>    
+   <script src="hola.js">
+
+   </script>
+   <div class="redes">
+    <h1>Búscanos en nuestras redes sociales</h1>
+    <a href="https://www.facebook.com/restauranteejecutivosabanero/?locale=es_LA"target="_blank"><img src="img/facebook.png"></a>
+    <a href="https://www.instagram.com/la.sabanera_sp/?__d=1%3Futm_source%3Dig_embed"target="_blank"><img src="img/instagram.png"></a>
+</div>
 </div>
 </body>
-
 </html>
